@@ -27,6 +27,17 @@ class BackStagePassesShould {
     }
 
     @Test
+    void increaseQualityByOneWhenSellInIsGreaterThanTen() {
+        app.items[0].quality = 5;
+        app.items[0].sellIn = 12;
+
+        app.updateQuality();
+        assertEquals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT, app.items[0].name);
+        assertEquals(6, app.items[0].quality);
+        assertEquals(11, app.items[0].sellIn);
+    }
+
+    @Test
     void increaseQualityByTwoWhenThereAreTenDaysOrLess() {
         app.items[0].quality = 5;
         app.items[0].sellIn = 10;

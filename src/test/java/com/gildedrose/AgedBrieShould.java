@@ -12,6 +12,17 @@ class AgedBrieShould {
     GildedRose app = new GildedRose(items);
 
     @Test
+    void increaseDoubleQualityAfterSellIn(){
+        app.items[0].quality = 2;
+        app.items[0].sellIn = 0;
+
+        app.updateQuality();
+        assertEquals(AGED_BRIE, app.items[0].name);
+        assertEquals(-1, app.items[0].sellIn);
+        assertEquals(4, app.items[0].quality);
+    }
+
+    @Test
     void increaseQualityTheOlderItGets() {
         app.items[0].quality = 0;
         app.items[0].sellIn = 2;

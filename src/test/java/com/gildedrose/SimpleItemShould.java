@@ -17,7 +17,7 @@ class SimpleItemShould {
 
     @Test
     void neverHaveNegativeQuality() {
-        app.items[0].quality = 1;
+        app.items[0].quality = 0;
         app.items[0].sellIn = 0;
 
         app.updateQuality();
