@@ -8,7 +8,7 @@ class AgedBrieShould {
     public static final String AGED_BRIE = "Aged Brie";
     public static final int MAX_QUALITY = 50;
 
-    Item[] items = new Item[] { new Item(AGED_BRIE, 2, 0) };
+    Item[] items = new Item[]{new Item(AGED_BRIE, 2, 0)};
     GildedRose app = new GildedRose(items);
 
     @Test
@@ -23,16 +23,18 @@ class AgedBrieShould {
     }
 
     @Test
-    void neverHaveQualityOverMax(){
+    void neverHaveQualityOverMax() {
         app.items[0].quality = MAX_QUALITY;
+        app.items[0].sellIn = -1;
 
         app.updateQuality();
         assertEquals(AGED_BRIE, app.items[0].name);
+        assertEquals(-2, app.items[0].sellIn);
         assertEquals(MAX_QUALITY, app.items[0].quality);
     }
 
     @Test
-    void neverHaveNegativeQuality(){
+    void neverHaveNegativeQuality() {
         // TODO
     }
 
