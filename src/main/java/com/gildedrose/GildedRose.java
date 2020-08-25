@@ -13,7 +13,6 @@ class GildedRose {
     public static final int DEFAULT_ITEM_DOUBLE_QUALITY_THRESHOLD = 0;
     public static final int SULFURAS_MAX_QUALITY = 80;
 
-
     public static final int SELL_IN_DECREMENT = 1;
 
     public static final int BACKSTAGE_PASSES_QUALITY_INCREMENT_LESS_TEN_DAYS = 2;
@@ -29,25 +28,25 @@ class GildedRose {
 
     public void updateQuality() {
 
-        for (int i = 0; i < items.length; i++) {
+        for (Item item : items) {
 
-            switch (items[i].name) {
+            switch (item.name) {
                 case AGED_BRIE:
-                    decreaseSellIn(items[i]);
-                    updateAgedBrieQuality(items[i]);
+                    decreaseSellIn(item);
+                    updateAgedBrieQuality(item);
                     break;
 
                 case BACKSTAGE_PASSES:
-                    decreaseSellIn(items[i]);
-                    updateBackstagePassesQuality(items[i]);
+                    decreaseSellIn(item);
+                    updateBackstagePassesQuality(item);
                     break;
 
                 case SULFURAS_HAND_OF_RAGNAROS:
                     break;
 
                 default:
-                    decreaseSellIn(items[i]);
-                    updateDefaultItemQuality(items[i]);
+                    decreaseSellIn(item);
+                    updateDefaultItemQuality(item);
                     break;
             }
         }
